@@ -37,3 +37,4 @@ RUN pecl install -o -f redis \
 WORKDIR /var/www
 
 USER $user
+
