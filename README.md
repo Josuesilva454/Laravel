@@ -1,11 +1,8 @@
 
-# Setup Docker Para Projetos Laravel
-[Assine a Academy, e Seja VIP!](https://academy.especializati.com.br)
-
-### Passo a passo
+### Primeiro passo
 Clone Repositório
 ```sh
-git clone https://github.com/especializati/setup-docker-laravel.git my-project
+git clone 
 ```
 ```sh
 cd my-project/
@@ -40,7 +37,7 @@ DB_HOST=mysql
 DB_PORT=3306
 DB_DATABASE=nome_que_desejar_db
 DB_USERNAME=root
-DB_PASSWORD=root
+DB_PASSWORD=
 
 CACHE_DRIVER=redis
 QUEUE_CONNECTION=redis

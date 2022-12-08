@@ -6,7 +6,7 @@ services:
         build:
             context: .
             dockerfile: Dockerfile
-        # image: especializati/laravel9-app
+
         restart: unless-stopped
         working_dir: /var/www/
         volumes:
@@ -43,6 +43,14 @@ services:
             - "3388:3306"
         networks:
             - laravel-9
+
+    phpmyadmin:
+        image: phpmyadmin
+        restart: always
+        ports:
+             - 9001:80
+        environment:
+             - PMA_ARBITRARY=1
 
     # queue
     queue:
