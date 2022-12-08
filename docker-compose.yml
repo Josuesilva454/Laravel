@@ -45,12 +45,18 @@ services:
             - laravel-9
 
     phpmyadmin:
-        image: phpmyadmin
+        depends_on:
+            - mysql
+        image: phpmyadmin/phpmyadmin
         restart: always
         ports:
              - 9001:80
         environment:
-             - PMA_ARBITRARY=1
+             - PMA_HOST=mysql
+             - PMA_PORT 3306
+        networks:
+            - laravel-9
+
 
     # queue
     queue:
@@ -68,6 +74,11 @@ services:
     # redis
     redis:
         image: redis:latest
+
+        volumes:
+             - ./docker/volumes/redis:/data
+        ports:
+             - "6379:6379"
         networks:
             - laravel-9
 
