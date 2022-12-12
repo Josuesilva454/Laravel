@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreUpdateRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Redirector;
@@ -25,12 +26,33 @@ class UserController extends Controller
    if (!$user = User::find($id))
       return Redirect()->back('user.index');
 
-      dd($user->name);
-      dd($user->email);
+      return view('users.show', compact('user'));
 
-        dd('users.show', $id);
 
     }
+    public function create()
+    {
 
 
+      return view('users.create');
+    }
+
+    public function store(StoreUpdateRequest  $request) // request consigo pega todos os dados
+    {
+
+
+   if ($data = $request->all());
+    $data['password'] = bcrypt($request->password);
+
+    $user = User::create($data);
+
+    return redirect()->route('users.index');
+
+     // $user = new  User;
+     // $user->name = $request->name;
+    //  $user->email = $request->email;
+     // $user->password = $request->password;
+     //   $user->save;
+
+    }
 }

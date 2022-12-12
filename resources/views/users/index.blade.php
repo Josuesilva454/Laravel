@@ -1,4 +1,11 @@
-<h1>Usuarios</h1>
+@extends('layouts.app')
+
+@section('content')
+<h1>Listagem de contatos
+
+    (<a href="{{ route('users.create') }}"> + </a>)
+</h1>
+
 
 <ul>
 
